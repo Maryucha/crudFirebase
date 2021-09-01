@@ -4,6 +4,13 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ErroComponent } from './erro/erro.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -13,7 +20,14 @@ import { ErroComponent } from './erro/erro.component';
     ErroComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports:[
     HeaderComponent,
