@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { ViewsModule } from './views/views.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ViewsModule } from './views/views.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     SharedModule,
-    ViewsModule
+    ViewsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
