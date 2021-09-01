@@ -12,12 +12,17 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 })
 export class FormularioComponent implements OnInit {
   produtoForm!: FormGroup;
-  // produto!: Produto;
   key: string = '';
+  categorias = [
+    'Selecione',
+    'Eletrônicos',
+    'Cama & Banho',
+    'Louças',
+    'Vestuário'
+  ]
 
   constructor(
     private produtoService: ProdutoService,
-    private dbService: DbService,
     private formBuilder: FormBuilder,
     private snackBar: MatSnackBar
   ) {}

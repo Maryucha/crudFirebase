@@ -27,18 +27,17 @@
         </tr>
         <tr>
           <td>
+              <!--CATEGORIA-->
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Categoria</mat-label>
-              <select matNativeControl required ngDefaultControl>
-                <option value="escolha" selected>Selecione</option>
-                <option value="Eletronico">Eletrônico</option>
-                <option value="cama">Cama & Banho</option>
-                <option value="vestuario">Vestuário</option>
-                <option value="louca">Louça</option>
-              </select>
+              <mat-select class="categoria" type="categoria" formControlName="categoriaControl" required>
+                <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </td>
           <td>
+              <!--QUANTIDADE-->
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Quantidade</mat-label>
               <input class="quantidade" matInput type="number" min="5"
