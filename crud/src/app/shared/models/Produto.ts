@@ -7,3 +7,5 @@ export class Produto {
   quantidade:number = 0;
 
 }
+
+export type Produtos = Array<Produto>;
