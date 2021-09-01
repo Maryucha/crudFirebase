@@ -1,0 +1,64 @@
+  .container{
+    padding: 90px 50px;
+    height: 500px;
+
+    .direita{
+
+      .um {
+        background-color: aqua;
+        height: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        margin-bottom: 5px;
+
+        text-decoration: none;
+        color:black;
+
+        border-radius: 10px;
+      }
+      .um:hover{
+        background-color: rgb(7, 112, 112);
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .dois {
+        background-color: rgb(236, 2, 224);
+        height: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        margin-bottom: 5px;
+
+        text-decoration: none;
+        color:black;
+
+        border-radius: 10px;
+      }
+
+      .dois:hover{
+        background-color: rgb(148, 9, 141);
+        color: white;
+        font-size: 1.2rem;
+      }
+
+      .botoes{
+        width: 100%;
+      }
+
+      // .botoes:link, a:visited {
+      //   color:white;
+      //   }
+      .botoes:active {
+        text-decoration: none
+        }
+    }
+  }
+
+
+
