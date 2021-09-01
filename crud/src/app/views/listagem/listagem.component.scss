@@ -9,9 +9,18 @@
     background-color: rgb(207, 211, 211);
     margin: 5px;
     max-width: 200px;
+    min-width: 200px;
 
    ul{
       padding-left: 0;
     }
+    .card-footer{
+      display: flex;
+
+      .btn{
+        margin: 2px;
+      }
+    }
+
   }
 }

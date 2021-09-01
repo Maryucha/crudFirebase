@@ -30,9 +30,17 @@ export class ListagemComponent implements OnInit {
 
   deletar(key: string) {
     this.produtoService.delete(key);
+    this.snackBar.open('Produto Deletado com sucesso!', 'X', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+    });
   }
 
   atualizar(produto: Produto, key: string) {
     this.dbService.editandoProduto(produto, key);
+    this.snackBar.open('Produto atualizado com sucesso!', 'X', {
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+    });
   }
 }

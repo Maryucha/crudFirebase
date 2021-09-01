@@ -7,8 +7,12 @@
         <li class="list-group-item list-group-item-action">R$ {{ produto.valor }}</li>
         <li class="list-group-item list-group-item-action">QUANTIDADE {{ produto.quantidade }}</li>
       </ul>
-      <a class="btn btn-warning">Editar</a>
-      <a class="btn btn-danger">Excluir</a>
+      <div class="card-footer">
+        <button type="button" class="btn btn-danger" (click)="deletar(produto.key)">Excluir</button>
+        <button type="button" class="btn btn-warning" (click)="atualizar(produto, produto.key)">Editar</button>
+      </div>
     </div>
   </div>
+
 </div>
+<a class="btn btn-warning" href="/">Voltar</a>

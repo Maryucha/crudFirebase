@@ -19,15 +19,37 @@ export class FormularioComponent implements OnInit {
     'Cama & Banho',
     'Louças',
     'Vestuário'
-  ]
+  ];
+  produto!: Produto;
 
   constructor(
     private produtoService: ProdutoService,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
-  ) {}
+    private snackBar: MatSnackBar,
+    private dbService: DbService
+  ) {
+    // this.produtoForm = this.formBuilder.group({
+    //   idControl: new FormControl(''),
+    //   nomeControl: new FormControl(''),
+    //   categoriaControl: new FormControl(''),
+    //   valorControl: new FormControl(''),
+    //   quantidadeControl: new FormControl(''),
+    // });
+  }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // this.produto = new Produto();
+    // this.dbService.currentProduto.subscribe(dado => {
+    //   if(dado.produto && dado.key){
+    //     this.produto = new Produto();
+    //     this.produto.id = dado.produto.key;
+    //     this.produto.nome = dado.produto.nome;
+    //     this.produto.categoria = dado.produto.categoria;
+    //     this.produto.valor = dado.produto.valor;
+    //     this.produto.quantidade = dado.produto.quantidade;
+    //   }
+    // })
+
     this.produtoForm = this.formBuilder.group({
       idControl: new FormControl(''),
       nomeControl: new FormControl(''),
