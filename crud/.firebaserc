@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "crud-a7c55": {
+      "hosting": {
+        "crud": [
+          "crud-a7c55"
+        ]
+      }
+    }
+  }
+}
