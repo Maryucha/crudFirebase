@@ -1,1 +1,60 @@
-<p>formulario works!</p>
+<div class="container">
+  <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+    <!--TABELA-->
+    <table>
+      <tbody>
+        <tr>
+          <!--NOME-->
+          <td>
+            <mat-form-field class="fill" appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input class="nome" matInput type="text" formControlName="nomeControl" required ngDefaultControl/>
+              <app-erro *ngIf="produtoForm.get('nomeControl')?.errors?.minlength"
+                mensagem="O nome deve ter mais de 6 caracteres.">
+              </app-erro>
+              <app-erro *ngIf="produtoForm.get('nomeControl')?.errors?.required &&
+                produtoForm.get('nomeControl')?.touched" mensagem="O Campo nome é obrigatório!">
+              </app-erro>
+            </mat-form-field>
+          </td>
+          <td>
+            <!--VALOR-->
+            <mat-form-field class="fill" appearance="fill">
+              <mat-label>Valor</mat-label>
+              <input class="valor" matInput type="text" formControlName="valorControl" required  ngDefaultControl/>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="fill" appearance="fill">
+              <mat-label>Categoria</mat-label>
+              <select matNativeControl required ngDefaultControl>
+                <option value="escolha" selected>Selecione</option>
+                <option value="Eletronico">Eletrônico</option>
+                <option value="cama">Cama & Banho</option>
+                <option value="vestuario">Vestuário</option>
+                <option value="louca">Louça</option>
+              </select>
+            </mat-form-field>
+          </td>
+          <td>
+            <mat-form-field class="fill" appearance="fill">
+              <mat-label>Quantidade</mat-label>
+              <input class="quantidade" matInput type="number" min="5"
+              max="20" step="5" formControlName="quantidadeControl" required ngDefaultControl>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr colapse="2">
+          <!--BOTÃO-->
+          <td>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="submit" class="btn btn-warning">Editar</button>
+            <button type="submit" class="btn btn-danger">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
