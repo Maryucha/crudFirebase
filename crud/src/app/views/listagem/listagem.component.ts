@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireList } from '@angular/fire/database';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Produto } from 'src/app/shared/models/Produto';
 import { DbService } from 'src/app/shared/services/db.service';
@@ -20,8 +21,8 @@ export class ListagemComponent implements OnInit {
   constructor(
     private produtoService: ProdutoService,
     private dbService: DbService,
-    private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -42,5 +43,6 @@ export class ListagemComponent implements OnInit {
       horizontalPosition: 'end',
       verticalPosition: 'top',
     });
+    this.router.navigate([`novocadastro/${key}`]);
   }
 }

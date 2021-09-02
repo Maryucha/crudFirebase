@@ -16,7 +16,7 @@ export class ProdutoService {
 
   iserindoProduto(produto: Produto){
     this.dbService.list('produtos').push(produto).then((result:any)=>{
-      //alert('id do produto inserido '+result.key);
+      alert('id do produto inserido '+result.key);
     });
   }
 

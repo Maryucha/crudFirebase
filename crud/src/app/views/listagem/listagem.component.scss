@@ -1,26 +1,35 @@
-.container{
+.container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: stretch;
 
-  .card{
+  .card {
     background-color: rgb(207, 211, 211);
     margin: 5px;
     max-width: 200px;
     min-width: 200px;
 
-   ul{
+    width: 18rem;
+
+    ul {
       padding-left: 0;
     }
-    .card-footer{
+
+    .card-footer {
       display: flex;
 
-      .btn{
-        margin: 2px;
+      .btn {
+        margin-right: 2px;
       }
     }
 
   }
+
+}
+
+.rodape {
+  margin-left: 110px;
+  margin-top: 25px;
 }

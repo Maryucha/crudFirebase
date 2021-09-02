@@ -15,6 +15,10 @@ const routes: Routes = [
     component: FormularioComponent
   },
   {
+    path:'novocadastro/:id',
+    component: FormularioComponent
+  },
+  {
     path: 'listagem',
     component: ListagemComponent
   },

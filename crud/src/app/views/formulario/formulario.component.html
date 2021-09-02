@@ -1,7 +1,7 @@
-<div class="container">
-  <form [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+<div class="container d-flex justify-content-center">
+  <form [formGroup]="produtoForm" (ngSubmit)="salvar()" class="formulario">
     <!--TABELA-->
-    <table>
+    <table class="tabela">
       <tbody>
         <tr>
           <!--NOME-->
@@ -43,6 +43,18 @@
               <input class="quantidade" matInput type="number" min="5"
               max="20" step="5" formControlName="quantidadeControl" required ngDefaultControl>
             </mat-form-field>
+          </td>
+        </tr>
+        <tr colapse="2">
+           <!--IMAGEM-->
+           <td>
+            <div class="divFoto">
+              <input class="foto" type="file" formControlName="imagemControl" accept="image/*" id="fotoUsuario"
+                required />
+
+              <p class="lblFoto">Foto</p>
+              <label for="fotoUsuario" class="btnFoto"></label>
+            </div>
           </td>
         </tr>
         <tr colapse="2">

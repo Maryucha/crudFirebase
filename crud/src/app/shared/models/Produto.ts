@@ -1,11 +1,11 @@
-export class Produto {
+export interface Produto {
 
-  id: number = 0;
-  nome:string = '';
-  categoria:string = '';
-  valor:number = 0;
-  quantidade:number = 0;
-
+  key: string,
+  nome:string,
+  categoria:string,
+  valor:number,
+  quantidade:number,
+  imagem: string
 }
 
 export type Produtos = Array<Produto>;

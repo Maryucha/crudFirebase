@@ -1,8 +1,9 @@
 <div class="container">
   <div class="card mt-2" *ngFor="let produto of produtos | async">
     <div class="card-body">
-      <h5 class="card-title">{{ produto.nome }}</h5>
-      <h3 class="card-subtitle mb-2 text-muted">{{ produto.categoria }}</h3>
+      <img class="card-img-top" src="{{ produto.imagem }}" alt="{{ produto.nome }}">
+      <h3 class="card-title">{{ produto.nome }}</h3>
+      <h4 class="card-subtitle mb-2 text-muted">{{ produto.categoria }}</h4>
       <ul lass="list-group">
         <li class="list-group-item list-group-item-action">R$ {{ produto.valor }}</li>
         <li class="list-group-item list-group-item-action">QUANTIDADE {{ produto.quantidade }}</li>
@@ -10,9 +11,13 @@
       <div class="card-footer">
         <button type="button" class="btn btn-danger" (click)="deletar(produto.key)">Excluir</button>
         <button type="button" class="btn btn-warning" (click)="atualizar(produto, produto.key)">Editar</button>
+        <!-- <button type="button" class="btn btn-warning" (click)="atualizarTest(produto, produto.key)">Editar</button> -->
       </div>
     </div>
   </div>
 
 </div>
-<a class="btn btn-warning" href="/">Voltar</a>
+<div class="rodape">
+  <a class="btn btn-info andar" href="/">Voltar</a>
+</div>
+
