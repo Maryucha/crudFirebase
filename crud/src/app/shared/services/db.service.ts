@@ -8,9 +8,9 @@ import { Produto } from '../models/Produto';
 })
 export class DbService {
 
-  private produtoSource = new BehaviorSubject<any|null>(null);
+  //rivate produtoSource = new BehaviorSubject<any|null>(null);
 
- // private produtoSource = new BehaviorSubject<any>({ produto: null, key: ''});
+  private produtoSource = new BehaviorSubject<any>({ produto: null, key: ''});
   currentProduto = this.produtoSource.asObservable();
 
   constructor() { }

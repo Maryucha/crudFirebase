@@ -48,14 +48,13 @@
         <tr colapse="2">
            <!--IMAGEM-->
            <td>
-            <div class="divFoto">
-              <input class="foto" type="file" formControlName="imagemControl" accept="image/*" id="fotoUsuario"
-                required />
-
-              <p class="lblFoto">Foto</p>
-              <label for="fotoUsuario" class="btnFoto"></label>
-            </div>
-          </td>
+            <mat-form-field class="fill" appearance="fill">
+              <mat-label>Imagem</mat-label>
+              <mat-select class="imagem" type="imagem" formControlName="imagemControl" required>
+                <mat-option *ngFor="let imagem of imagens" [value]="imagem.imagem">{{ imagem.nome }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
         </tr>
         <tr colapse="2">
           <!--BOTÃO-->

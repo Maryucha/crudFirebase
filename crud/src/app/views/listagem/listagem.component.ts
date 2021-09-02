@@ -17,6 +17,9 @@ export class ListagemComponent implements OnInit {
   produtos!: Observable<any>;
   listaProdutos!: AngularFireList<Produto[]>;
   produtoForm!: FormGroup;
+  produto!: Produto;
+  key: string = '';
+  isSelected = false;
 
   constructor(
     private produtoService: ProdutoService,
@@ -26,11 +29,25 @@ export class ListagemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      this.produtos = this.produtoService.list();
+      this.produtos = this.produtoService.getAll();
+
+      //para carregar o formulário
+      this.produto = new Produto();
+      this.dbService.currentProduto.subscribe(data =>{
+        if(data.produto && data.key){
+          this.produto = new Produto();
+          this.produto.nome = data.produto.nome;
+          this.produto.categoria = data.produto.categoria;
+          this.produto.valor = data.produto.valor;
+          this.produto.quantidade = data.produto.quantidade;
+          this.produto.imagem = data.produto.imagem;
+        }
+      })
+
   }
 
-  deletar(key: string) {
-    this.produtoService.delete(key);
+  delete(key: string) {
+    this.produtoService.deletar(key);
     this.snackBar.open('Produto Deletado com sucesso!', 'X', {
       horizontalPosition: 'end',
       verticalPosition: 'top',
@@ -38,11 +55,27 @@ export class ListagemComponent implements OnInit {
   }
 
   atualizar(produto: Produto, key: string) {
+    this.isSelected = true;
+    //this.router.navigate([`edit/${key}`]);
     this.dbService.editandoProduto(produto, key);
-    this.snackBar.open('Produto atualizado com sucesso!', 'X', {
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
-    });
-    this.router.navigate([`novocadastro/${key}`]);
+  }
+
+  onSubmit(){
+
+    if(this.key){
+      console.log(this.produto.nome);
+      this.produtoService.updateProduto(this.produto,this.key);
+
+      this.snackBar.open('Produto atualizado com sucesso!', 'X', {
+        horizontalPosition: 'end',
+        verticalPosition: 'top',
+      });
+
+    }else{
+      this.router.navigate([`novocadastro`]);
+      //this.produtoService.iserindoProduto(this.produto);
+    }
+    this.produto = new Produto();
+    this.isSelected =false;
   }
 }

@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="card mt-2" *ngFor="let produto of produtos | async">
     <div class="card-body">
       <img class="card-img-top" src="{{ produto.imagem }}" alt="{{ produto.nome }}">
@@ -9,12 +10,40 @@
         <li class="list-group-item list-group-item-action">QUANTIDADE {{ produto.quantidade }}</li>
       </ul>
       <div class="card-footer">
-        <button type="button" class="btn btn-danger" (click)="deletar(produto.key)">Excluir</button>
+        <button type="button" class="btn btn-danger" (click)="delete(produto.key)">Excluir</button>
         <button type="button" class="btn btn-warning" (click)="atualizar(produto, produto.key)">Editar</button>
-        <!-- <button type="button" class="btn btn-warning" (click)="atualizarTest(produto, produto.key)">Editar</button> -->
       </div>
     </div>
   </div>
+
+  <form (ngSubmit)="onSubmit()" *ngIf="isSelected">
+
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.nome" name="nome" />
+    </div>
+
+    <div class="form-group">
+      <label>Categoria</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.categoria" name="categoria" />
+    </div>
+
+    <div class="form-group">
+      <label>Valor</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.valor" name="valor" />
+    </div>
+    <div class="form-group">
+      <label>Quantidade</label>
+      <input type="text" class="form-control" [(ngModel)]="produto.quantidade" name="quantidade" />
+    </div>
+
+    <div class="form-group">
+      <label>Imagem</label>
+      <input type="tel" class="form-control" [(ngModel)]="produto.imagem" name="imagem" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
 
 </div>
 <div class="rodape">
