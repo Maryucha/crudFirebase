@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AngularFireList } from '@angular/fire/database';
 import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -28,20 +28,20 @@ export class ListagemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      this.produtos = this.produtoService.getAll();
+    this.produtos = this.produtoService.getAll();
 
-      this.produto = new Produto();
-      this.dbService.currentProduto.subscribe(data =>{
-        if(data.produto && data.key){
-          this.key = data.key
-          this.produto = new Produto();
-          this.produto.nome = data.produto.nome;
-          this.produto.categoria = data.produto.categoria;
-          this.produto.valor = data.produto.valor;
-          this.produto.quantidade = data.produto.quantidade;
-          this.produto.imagem = data.produto.imagem;
-        }
-      })
+    this.produto = new Produto();
+    this.dbService.currentProduto.subscribe((data) => {
+      if (data.produto && data.key) {
+        this.key = data.key;
+        this.produto = new Produto();
+        this.produto.nome = data.produto.nome;
+        this.produto.categoria = data.produto.categoria;
+        this.produto.valor = data.produto.valor;
+        this.produto.quantidade = data.produto.quantidade;
+        this.produto.imagem = data.produto.imagem;
+      }
+    });
   }
 
   deleteDaLista(key: string) {
