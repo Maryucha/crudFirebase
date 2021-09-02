@@ -18,7 +18,8 @@ export class ProdutoService {
       .list('produtos')
       .push(produto)
       .then((result: any) => {
-        alert('id do produto inserido ' + result.key);
+        console.log(result.key)
+        //alert('id do produto inserido ' + result.key);
       });
   }
 
@@ -27,7 +28,7 @@ export class ProdutoService {
       .list('produtos')
       .update(key, produto)
       .catch((error: any) => {
-        alert('DEU PAU ' + error.message);
+        alert('Não atualizou pois: ' + error.message);
       });
   }
 
@@ -44,6 +45,7 @@ export class ProdutoService {
   }
 
   deletar(key: string) {
-    this.dbService.object(`produto/${key}`).remove();
+    this.dbService.object(`produtos/${key}`).remove();
+   // this.db.object(`contato/${key}`).remove();
   }
 }

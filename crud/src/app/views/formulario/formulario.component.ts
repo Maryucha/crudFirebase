@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireList } from '@angular/fire/database';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -16,7 +15,8 @@ import { ProdutoService } from 'src/app/shared/services/produto.service';
 export class FormularioComponent implements OnInit {
   produtoForm!: FormGroup;
   key: string = '';
-
+  produtos!: Observable<any>;
+  produto!: Produto;
   categorias = [
     'Selecione',
     'Eletrônicos',
@@ -24,7 +24,6 @@ export class FormularioComponent implements OnInit {
     'Louças',
     'Vestuário',
   ];
-
   imagens = [
     {
       nome: 'camisa',
@@ -52,9 +51,7 @@ export class FormularioComponent implements OnInit {
     },
   ];
 
-  produtos!: Observable<any>;
-  listaProdutos!: AngularFireList<Produto[]>;
-  produto!: Produto;
+
 
   constructor(
     private produtoService: ProdutoService,
@@ -68,8 +65,18 @@ export class FormularioComponent implements OnInit {
     this.produtos = this.produtoService.getAll();
 
     this.produto = new Produto();
+
+    this.produtoForm = this.formBuilder.group({
+      nomeControl: new FormControl(''),
+      categoriaControl: new FormControl(''),
+      valorControl: new FormControl(''),
+      quantidadeControl: new FormControl(''),
+      imagemControl: new FormControl(''),
+    });
+
     this.dbService.currentProduto.subscribe(data =>{
       if(data.produto && data.key){
+        this.key = data.key;
         this.produto = new Produto();
         this.produto.nome = data.produto.nome;
         this.produto.categoria = data.produto.categoria;
@@ -78,21 +85,10 @@ export class FormularioComponent implements OnInit {
         this.produto.imagem = data.produto.imagem;
       }
     })
-
-
-    this.produtoForm = this.formBuilder.group({
-      keyControl: new FormControl(''),
-      nomeControl: new FormControl(''),
-      categoriaControl: new FormControl(''),
-      valorControl: new FormControl(''),
-      quantidadeControl: new FormControl(''),
-      imagemControl: new FormControl(''),
-    });
   }
 
   salvar() {
     const newProduto = {
-      key: this.key,
       nome: this.produtoForm.value.nomeControl,
       categoria: this.produtoForm.value.categoriaControl,
       valor: this.produtoForm.value.valorControl,
@@ -105,12 +101,8 @@ export class FormularioComponent implements OnInit {
         horizontalPosition: 'end',
         verticalPosition: 'top',
       });
-      this.limparFormulario();
+      this.produtoForm.reset();
       this.router.navigate(['listagem']);
     }
-  }
-
-  limparFormulario() {
-    this.produtoForm.reset();
   }
 }
