@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
@@ -67,11 +67,11 @@ export class FormularioComponent implements OnInit {
     this.produto = new Produto();
 
     this.produtoForm = this.formBuilder.group({
-      nomeControl: new FormControl(''),
-      categoriaControl: new FormControl(''),
-      valorControl: new FormControl(''),
-      quantidadeControl: new FormControl(''),
-      imagemControl: new FormControl(''),
+      nomeControl: new FormControl('',[Validators.required]),
+      categoriaControl: new FormControl('',[Validators.required]),
+      valorControl: new FormControl('',[Validators.required]),
+      quantidadeControl: new FormControl('',[Validators.required]),
+      imagemControl: new FormControl('',[Validators.required]),
     });
 
     this.dbService.currentProduto.subscribe(data =>{

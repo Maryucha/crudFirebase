@@ -8,7 +8,7 @@
           <td>
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Nome</mat-label>
-              <input class="nome" matInput type="text" formControlName="nomeControl" required ngDefaultControl/>
+              <input class="nome" matInput type="text" formControlName="nomeControl" required ngDefaultControl />
               <app-erro *ngIf="produtoForm.get('nomeControl')?.errors?.minlength"
                 mensagem="O nome deve ter mais de 6 caracteres.">
               </app-erro>
@@ -21,39 +21,51 @@
             <!--VALOR-->
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Valor</mat-label>
-              <input class="valor" matInput type="text" formControlName="valorControl" required  ngDefaultControl/>
+              <input class="valor" matInput type="text" formControlName="valorControl" required ngDefaultControl />
+              <app-erro *ngIF="produtoForm.get('valorControl')?.errors?.required
+                && produtoForm.get('valorControl')?.touched" mensagem="O campo valor é obrigatório!">
+              </app-erro>
             </mat-form-field>
           </td>
         </tr>
         <tr>
           <td>
-              <!--CATEGORIA-->
+            <!--CATEGORIA-->
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Categoria</mat-label>
               <mat-select class="categoria" type="categoria" formControlName="categoriaControl" required>
                 <mat-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}
                 </mat-option>
               </mat-select>
+              <app-erro *ngIF="produtoForm.get('categoriaControl')?.errors?.required
+              && produtoForm.get('categoriaControl')?.touched" mensagem="O campo categoria é obrigatório!">
+              </app-erro>
             </mat-form-field>
           </td>
           <td>
-              <!--QUANTIDADE-->
+            <!--QUANTIDADE-->
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Quantidade</mat-label>
-              <input class="quantidade" matInput type="number" min="5"
-              max="20" step="5" formControlName="quantidadeControl" required ngDefaultControl>
+              <input class="quantidade" matInput type="number" min="5" max="20" step="5"
+                formControlName="quantidadeControl" required ngDefaultControl>
+              <app-erro *ngIF="produtoForm.get('quantidadeControl')?.errors?.required
+              && produtoForm.get('quantidadeControl')?.touched" mensagem="O campo quantidade é obrigatório!">
+              </app-erro>
             </mat-form-field>
           </td>
         </tr>
         <tr colapse="2">
-           <!--IMAGEM-->
-           <td>
+          <!--IMAGEM-->
+          <td>
             <mat-form-field class="fill" appearance="fill">
               <mat-label>Imagem</mat-label>
               <mat-select class="imagem" type="imagem" formControlName="imagemControl" required>
                 <mat-option *ngFor="let imagem of imagens" [value]="imagem.imagem">{{ imagem.nome }}
                 </mat-option>
               </mat-select>
+              <app-erro *ngIF="produtoForm.get('imagemControl')?.errors?.required
+              && produtoForm.get('imagemControl')?.touched" mensagem="O campo imagem é obrigatório!">
+              </app-erro>
             </mat-form-field>
         </tr>
         <tr colapse="2">
