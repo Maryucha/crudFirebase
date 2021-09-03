@@ -1,25 +1,25 @@
 # Cadastro de PRODUTOS
 
 Nesse projeto estava buscando praticar um pouco mais sobre o angular então trouxe a proposta de fazer um CRUD bássico com:
-- [x] home
-- [x] Listagem de Produtos
-- [x] Editar
-- [x] Criar produtos
-- [x] 404Error
+- [ x] home
+- [ x] Listagem de Produtos
+- [ x] Editar
+- [ x] Criar produtos
+- [ x] 404Error
 
 -MEUS DESAFIOS
- - [x] Usar o Angular
- - [x] Consumir do Firebase
- - [x] Usar HTML
- - [x] CSS
- - [x] Responsividade
- - [x] Build e Deploy
+ - [ x] Usar o Angular
+ - [ x] Consumir do Firebase
+ - [ x] Usar HTML
+ - [ x] CSS
+ - [ x] Responsividade
+ - [ x] Build e Deploy
 
 	● Rodando [Visite](https://crud-a7c55.web.app/)
 
 E a proposta de desenvolvimento para o front era seguir o seguinte padrão
 --TELA HOME
-![Proposta inicial]https://github.com/Maryucha/crudFirebase/blob/addimagem/crud/imagens/home.png?raw=true)
+![Home](https://github.com/Maryucha/crudFirebase/blob/addimagem/crud/imagens/home.png?raw=true)
 --TELA DE FORMULÁRIO
 ![Formulário](https://github.com/Maryucha/crudFirebase/blob/addimagem/crud/imagens/formulario.png?raw=true)
 --TELA DE LISTAGEM
@@ -31,10 +31,10 @@ E a proposta de desenvolvimento para o front era seguir o seguinte padrão
 
 # O que foi feito 
 
- - [x] Permitir edição;
- - [x] HTML máximo possível semântico;
- - [x] CSS bem estruturado;
- - [x] Código limpo e bem organizado;
+ - [ x] Permitir edição;
+ - [ x] HTML máximo possível semântico;
+ - [ x] CSS bem estruturado;
+ - [ x] Código limpo e bem organizado;
 
 Completei todas as tarefas básicas e algumas extras:
 Feedbacks visuais para o usuário (alertas, inputs...);
