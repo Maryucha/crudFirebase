@@ -1,23 +1,60 @@
 <div class="container">
-  <div class="card mt-2" *ngFor="let produto of produtos | async">
-    <div class="card-body">
-      <img class="card-img-top" src="{{ produto.imagem }}" alt="{{ produto.nome }}">
-      <h3 class="card-title">{{ produto.nome }}</h3>
-      <h4 class="card-subtitle mb-2 text-muted">{{ produto.categoria }}</h4>
-      <ul lass="list-group">
-        <li class="list-group-item list-group-item-action">R$ {{ produto.valor }}</li>
-        <li class="list-group-item list-group-item-action">QUANTIDADE {{ produto.quantidade }}</li>
-      </ul>
-      <div class="card-footer">
-        <button type="button" class="btn btn-danger" (click)="deletar(produto.key)">Excluir</button>
-        <button type="button" class="btn btn-warning" (click)="atualizar(produto, produto.key)">Editar</button>
-        <!-- <button type="button" class="btn btn-warning" (click)="atualizarTest(produto, produto.key)">Editar</button> -->
+  <h1>Lista de produtos cadastrados</h1>
+  <div class="lista" *ngIf="produtos |async; else other_content">
+
+    <div class="item teste" *ngFor="let produto of produtos | async">
+
+      <div class="card mt-2 mat-elevation-z4">
+        <div class="card-body">
+
+          <img class="card-img-top" src="{{ produto.imagem }}" alt="{{ produto.nome }}">
+          <h3 class="card-title">{{ produto.nome }}</h3>
+          <h4 class="card-subtitle mb-2 text-muted">{{ produto.categoria }}</h4>
+
+          <table class="table table-hover">
+            <tbody>
+              <tr>
+                <th scope="row">Valor</th>
+                <td>{{ produto.valor }}</td>
+              </tr>
+              <tr>
+                <th scope="row">Quantidade</th>
+                <td>{{ produto.quantidade }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <a>
+            {{produto.key}}
+          </a>
+          <div class="card-footer">
+            <button type="button" class="btn btn-danger" (click)="deleteDaLista(produto.key)">Excluir</button>
+            <button type="button" class="btn btn-warning" (click)="atualizar(produto, produto.key)">Editar</button>
+          </div>
+        </div>
+
+
       </div>
     </div>
+
+  </div>
+  <div class="rodape">
+    <a class="btn btn-info andar" href="/">Voltar</a>
   </div>
 
-</div>
-<div class="rodape">
-  <a class="btn btn-info andar" href="/">Voltar</a>
+
+  <div class="spinner">
+
+    <ng-template #other_content>
+
+      <mat-spinner></mat-spinner>
+
+        <p>carregando...</p>
+
+        <div class="rodape">
+          <a class="btn btn-info andar" href="/">Voltar</a>
+        </div>
+
+    </ng-template>
+  </div>
 </div>
 

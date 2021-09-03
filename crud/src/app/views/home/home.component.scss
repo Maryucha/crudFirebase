@@ -5,7 +5,7 @@
     .direita{
 
       .um {
-        background-color: aqua;
+        background-color: rgb(238, 48, 222);
         height: 50%;
 
         display: flex;
@@ -20,13 +20,13 @@
         border-radius: 10px;
       }
       .um:hover{
-        background-color: rgb(7, 112, 112);
+        background-color: rgb(141, 14, 180);;
         color: white;
         font-size: 1.2rem;
       }
 
       .dois {
-        background-color: rgb(236, 2, 224);
+        background-color: rgb(167, 21, 235);
         height: 50%;
 
         display: flex;
@@ -42,7 +42,7 @@
       }
 
       .dois:hover{
-        background-color: rgb(148, 9, 141);
+        background-color: rgb(111, 12, 136);
         color: white;
         font-size: 1.2rem;
       }
@@ -62,3 +62,6 @@
 
 
 
+.logo{
+  width: 400px;
+}

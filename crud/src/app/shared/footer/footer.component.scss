@@ -10,10 +10,17 @@
   justify-content: flex-end;
 
 
-  background-color: #000;
+  background-color: rgb(121, 9, 102);
   color: #fff;
 }
 
 .color{
   text-decoration: none;
+}
+.nome:link {
+  text-decoration: none;
+}
+.nome:hover {
+  text-decoration: none;
+  color:rgb(255, 0, 255);
 }
